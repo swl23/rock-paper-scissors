@@ -1,21 +1,39 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let rock = document.querySelector('#rock');
-let paper = document.querySelector('#paper');
-let scissors = document.querySelector('#scissors');
+function updateScore() {
+    let oldHuman = document.getElementById('human-score');
+    let oldComputer = document.getElementById('computer-score');
 
-rock.addEventListener('click', () => {
-    let answer = 'rock';
-    playRound(answer)});
+    oldHuman.textContent = humanScore;
+    oldComputer.textContent = computerScore
+}
 
-paper.addEventListener('click', () => {
-    let answer = 'paper';
-    playRound(answer)});
+document.addEventListener('DOMContentLoaded', () => {
+    updateScore();
+    
+    const rock = document.querySelector('#rock');
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector('#scissors');
 
-scissors.addEventListener('click', () => {
-    let answer = 'scissors';
-    playRound(answer)});
+    rock.addEventListener('click', () => {
+        let choice = 'rock';
+        playRound(choice);
+        updateScore();
+    });
+
+    paper.addEventListener('click', () => {
+        let choice = 'paper';
+        playRound(choice);
+        updateScore();
+    });
+
+    scissors.addEventListener('click', () => {
+        let choice = 'scissors';
+        playRound(choice);
+        updateScore();
+    });
+})
 
 function getComputerChoice() {
     let x = Math.floor(Math.random() * 3)
@@ -30,12 +48,6 @@ function getComputerChoice() {
     }
     console.log(choice)
     return choice
-}
-
-function getHumanChoice(input) {
-    input = prompt('Make your selection: Rock? Paper? Scissors? ')
-    console.log(input)
-    return input
 }
 
 function playRound(humanChoice) {
@@ -76,9 +88,3 @@ function playRound(humanChoice) {
         console.log('It\'s a tie!');
     }
 }
-   
-    /*playRound(getHumanChoice(), getComputerChoice())
-    console.log('HUMAN: ' + humanScore);
-    console.log('COMPUTER: ' + computerScore)
-    console.log('---------------------------------')*/
-
