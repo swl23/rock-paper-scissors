@@ -65,38 +65,47 @@ function getComputerChoice() {
 function playRound(humanChoice) {
     let computerVictory = 'The computer wins!';
     let humanVictory = 'You win!';
+    let scoreboard = document.querySelector('.scoreboard');
+    const result = document.createElement('p');
     const computerChoice = getComputerChoice();
     if (humanChoice === "rock" && computerChoice === "paper") {
-        console.log(computerVictory);
+        result.textContent = computerVictory;
+        scoreboard.appendChild(result);
         computerScore += 1;
         return computerScore
     }
     else if (humanChoice === "rock" && computerChoice === "scissors") {
-        console.log(humanVictory);
+        result.textContent = humanVictory;
+        scoreboard.appendChild(result);
         humanScore += 1;
         return humanScore
     }
     else if (humanChoice === "paper" && computerChoice === "rock") {
-        console.log(humanVictory);
+        result.textContent = humanVictory;
+        scoreboard.appendChild(result);
         humanScore += 1;
         return humanScore
     }
     else if (humanChoice === "paper" && computerChoice === "scissors") {
-        console.log(computerVictory);
+        result.textContent = computerVictory;
+        scoreboard.appendChild(result);
         computerScore += 1;
         return computerScore
     }
     else if (humanChoice === "scissors" && computerChoice === "rock") {
-        console.log(computerVictory);
+        result.textContent = computerVictory;
+        scoreboard.appendChild(result);
         computerScore += 1;
         return computerScore
     }
     else if (humanChoice === "scissors" && computerChoice === "paper") {
-        console.log(humanVictory);
+        result.textContent = humanVictory;
+        scoreboard.appendChild(result);
         humanScore += 1;
         return humanScore
     }
     else if (humanChoice === computerChoice) {
-        console.log('It\'s a tie!');
+        result.textContent = 'It\'s a tie!';
+        scoreboard.appendChild(result);
     }
 }
