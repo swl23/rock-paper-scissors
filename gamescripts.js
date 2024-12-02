@@ -9,6 +9,15 @@ function updateScore() {
     oldComputer.textContent = computerScore
 }
 
+function checkWinner(x, y) {
+    if (x === 5) {
+        alert('YOU WIN, HUMAN!');
+    }
+    else if (y === 5) {
+        alert('COMPUTER WINS!');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     updateScore();
     
@@ -20,18 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
         let choice = 'rock';
         playRound(choice);
         updateScore();
+        checkWinner(humanScore, computerScore);
     });
 
     paper.addEventListener('click', () => {
         let choice = 'paper';
         playRound(choice);
         updateScore();
+        checkWinner(humanScore, computerScore);
     });
 
     scissors.addEventListener('click', () => {
         let choice = 'scissors';
         playRound(choice);
         updateScore();
+        checkWinner(humanScore, computerScore);
     });
 })
 
